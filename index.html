@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VIKTOR'S VELODROME</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script   src="http://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+
+<!-- 
+Elements:
+  Title - top left
+  VICTOR'S VELODROME
+  -->
+
+<main>
+  <div class="title">
+    <h1>VIKTOR'S VELODROME</h1>
+  </div>
+  <!-- Scoreboard - top right
+    Divided box labelled P1 and P2.
+    Pulls JQ variables - p1wins + p2wins -->
+
+  <div class="scoreboard">
+    <table>
+        <tr>
+          <th>
+          Player 1
+          </th>
+          <th>
+          Player 2
+          </th>
+        </tr>
+      <tr>
+       <td>0</td> 
+        <td>0</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- Track - center
+  Large oval with centre pieces
+  Cyclist sprites moving round and round. Need to move and rotate! -->
+    <div class="play_area">
+      <div id="track">
+        <div id="track_inner"></div>
+      </div>
+    </div>
+
+
+  <!-- Instructions - bottom
+    three sections - 
+    P1 instructions push A/S - left
+    RESET - Center
+    P2 instructions push K/L - right -->
+    <div class="instructions">
+    <div class="column">
+      <h2>Player1</h2>
+      <div class="key">A</div>
+      <div class="key">S</div>
+    </div>
+    <div class="column">
+      <button>START/RESET</button>
+    </div>
+    <div class="column">
+      <h2>Player2</h2>
+      <div class="key">K</div>
+      <div class="key">L</div>
+    </div>
+
+
+  </main>
+
+
+<!--   OR! MOBILE!?
+    Very similar but track goes vertical rather than horizontal 
+    MUCH more difficult to do buttons and two player-->
+
+
+
+
+</body>
+</html>
