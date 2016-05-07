@@ -33,10 +33,9 @@ body {
   display: inline;
 }
 
-
 .play_area {
   margin: 0 auto;
-  width: 400px;
+  width: 500px;
 
 }
 
@@ -47,4 +46,15 @@ body {
   border: solid #be5 200px;
   border-radius: 50%;
   margin: 0 auto;
+}
+
+#sprite1 {
+  width: 16px;
+  height: 16px;
+  background-color: #e21;
+  border-radius: 50%;
+  position:fixed;
+  top:205px;
+  left: 712px;
+  display: inline-block;
 }
