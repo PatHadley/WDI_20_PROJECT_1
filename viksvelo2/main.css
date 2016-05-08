@@ -1,0 +1,104 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: #222;
+}
+.title {
+  color: #f42;
+  font-size: 500%;
+}
+
+h3 {
+  color:#fff;
+  font-size: 120px;
+  text-align: center;
+  line-height: 120px;
+}
+
+.scoreboard {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #ddd;
+}
+
+.instructions {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #ddd;
+}
+.column {
+  width: 30%;
+  height: 40px;
+  display: inline-block;
+}
+.key {
+  display: inline;
+}
+
+.play_area {
+  margin: 0 auto;
+  width: 1100px;
+
+}
+
+#track {
+  width: 700px;
+  height: 100px;
+  background-color: #222;
+  border: solid #be5 200px;
+  border-radius: 250px;
+  margin: 0 auto;
+}
+
+#sprite1 {
+  width: 16px;
+  height: 16px;
+  background-color: #e21;
+  border-radius: 50%;
+  position:absolute;
+  transform-origin: 
+  top:205px;
+  left: 612px;
+  display: inline-block;
+}
+
+/*AUTOROTATE*/
+/*#sprite1 { 
+  width: 16px;
+  height: 16px;
+  background-color: #e21;
+  border-radius: 50%;
+  position:fixed;
+  top:328px;
+  left: 712px;
+  display: inline-block;
+  transform-origin: 
+}*/
+
+/*@keyframes circle {
+  from { transform: rotate(0deg)
+                    translate(-330px)
+                    rotate(0deg);
+  }
+  to {   transform: rotate(360deg)
+                    translate(-330px) 
+                    rotate(-360deg);
+  }
+}
+
+.smile {
+  top: 330px;
+  animation: circle 6s 
+             linear infinite;
+}*/
+
+
+
+
+
+
