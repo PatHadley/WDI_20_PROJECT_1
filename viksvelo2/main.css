@@ -58,13 +58,17 @@ h3 {
 #sprite1 {
   width: 16px;
   height: 16px;
-  background-color: #e21;
-  border-radius: 50%;
+  /*background-color: #e21;*/
+  /*border-radius: 50%;*/
   position:absolute;
   transform-origin: 
   top:205px;
   left: 612px;
   display: inline-block;
+}
+#sprite1 img {
+  width: 60px;
+  transform:rotate: (0deg);
 }
 
 /*AUTOROTATE*/
