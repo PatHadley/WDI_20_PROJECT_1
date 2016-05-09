@@ -65,7 +65,7 @@ $(window).keypress(function(e){
 function cadenceCounter(){ 
 
   // distanceP1 = (cadence);
-  speed = cadence/100;
+  speed = cadence/80;
   cadence = 0;
   console.log("speed" , speed);
 
@@ -101,7 +101,7 @@ function cadenceCounter(){
             // OUTPUT - PLAYER POSITION VALUE (AS CALCULATED ALONG THE OVAL) - POSITION TURNED INTO ANIMATED SPRITE
 
 
-var angle = 5;
+var angle = ((3*Math.PI)/2);
 var rad = 125;
 var startXPosP1 = 652;
 var startYPosP1 = 320;
@@ -111,11 +111,15 @@ var startYPosP1 = 320;
 function positionCalc (){
   
   angle += speed;
+  var spriteAngle = (60*angle)+90;
 
   var xPosP1 = (startXPosP1 + (rad * (Math.cos(angle))));
   var yPosP1 = (startYPosP1 + (rad * (Math.sin(angle))));
-
+  console.log("angle:"+angle, "spriteAngle:"+spriteAngle);
   $("#sprite1").css({"left":xPosP1, "top":yPosP1});
+  $("#sprite1").css({transform:'rotate(' + spriteAngle + 'deg)'});
+  // $("#sprite1").css("transform: 'rotate('+(angle+90)+'deg'");
+  // transform: 'rotate(' + -amount + 'deg)'
   // $("#sprite1").animate({"left":xPosP1, "top":yPosP1});
   // startXPosP1 = xPosP1;
   // startYPosP1 = yPosP1;
