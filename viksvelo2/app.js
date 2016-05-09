@@ -142,13 +142,13 @@ function positionCalcP1 (){
   angleP1 += speedP1;
   spriteAngleP1 = angleP1 - 270;
   // BROKEN SUPER ELLIPSE
-  // var cosAngle = Math.cos(degsToRads(angle));
-  // var sinAngle = Math.sin(degsToRads(angle));
-  // var xPosP1 = startXPosP1 + (650 * (Math.pow(cosAngle),(2/2.5)));
-  // var yPosP1 = startYPosP1 + (200 * (Math.pow(sinAngle),(2/2.5)));
+  // var cosAngle = Math.cos(degsToRads(angleP1));
+  // var sinAngle = Math.sin(degsToRads(angleP1));
+  // var xPosP1 = startXPosP1 + (200 * (Math.pow(cosAngle,(3/2))));
+  // var yPosP1 = startYPosP1 + (200 * (Math.pow(sinAngle,(3/2))));
 // circle version
-  var xPosP1 = (startXPosP1 + (rad * (Math.cos(degsToRads(angleP1)))));
-  var yPosP1 = (startYPosP1 + (rad * (Math.sin(degsToRads(angleP1)))));
+  var xPosP1 = (startXPosP1 + (500 * (Math.cos(degsToRads(angleP1)))));
+  var yPosP1 = (startYPosP1 + (130 * (Math.sin(degsToRads(angleP1)))));
   console.log("angle:"+angleP1, "spriteAngle:"+spriteAngleP1);
   // console.log("cosAngle"+cosAngle,"sinAngle"+sinAngle);
   // console.log("superellipseX"+(650 * (Math.pow(cosAngle),(2718))));
@@ -169,8 +169,8 @@ function positionCalcP2 (){
   // var xPosP1 = startXPosP1 + (650 * (Math.pow(cosAngle),(2/2.5)));
   // var yPosP1 = startYPosP1 + (200 * (Math.pow(sinAngle),(2/2.5)));
 // circle version
-  var xPosP2 = (startXPosP2 + (rad * (Math.cos(degsToRads(angleP2)))));
-  var yPosP2 = (startYPosP2 + (rad * (Math.sin(degsToRads(angleP2)))));
+  var xPosP2 = (startXPosP2 + (500 * (Math.cos(degsToRads(angleP2)))));
+  var yPosP2 = (startYPosP2 + (130 * (Math.sin(degsToRads(angleP2)))));
   console.log("angle:"+angleP2, "spriteAngle:"+spriteAngleP2);
   // console.log("cosAngle"+cosAngle,"sinAngle"+sinAngle);
   // console.log("superellipseX"+(650 * (Math.pow(cosAngle),(2718))));
