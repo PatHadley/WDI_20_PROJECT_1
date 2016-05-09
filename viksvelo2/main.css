@@ -55,52 +55,30 @@ h3 {
   margin: 0 auto;
 }
 
-#sprite1 {
+#sprite1, #sprite2 {
   width: 16px;
   height: 16px;
-  /*background-color: #e21;*/
-  /*border-radius: 50%;*/
   position:absolute;
-  transform-origin: 
-  top:205px;
-  left: 612px;
   display: inline-block;
 }
-#sprite1 img {
+#sprite1 {
+  left: 720px;
+  top: 190px;
+}
+#sprite2 {
+  left: 720px;
+  top: 490px;
+}
+
+
+#sprite1 img, #sprite2 img {
   width: 60px;
-  transform:rotate: (0deg);
 }
-
-/*AUTOROTATE*/
-/*#sprite1 { 
-  width: 16px;
-  height: 16px;
-  background-color: #e21;
-  border-radius: 50%;
-  position:fixed;
-  top:328px;
-  left: 712px;
-  display: inline-block;
-  transform-origin: 
-}*/
-
-/*@keyframes circle {
-  from { transform: rotate(0deg)
-                    translate(-330px)
-                    rotate(0deg);
-  }
-  to {   transform: rotate(360deg)
-                    translate(-330px) 
-                    rotate(-360deg);
-  }
+#sprite2 img {
+  transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
 }
-
-.smile {
-  top: 330px;
-  animation: circle 6s 
-             linear infinite;
-}*/
-
 
 
 

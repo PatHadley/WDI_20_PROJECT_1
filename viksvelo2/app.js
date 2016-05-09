@@ -26,8 +26,13 @@ function start(){
       $("#track h3").remove("#track h3");
     }, 3500);
 // Start interval loops to measure speed and position here once working!
+    setTimeout (function(){
+      window.setInterval(cadenceCounter, 1000);
+      window.setInterval(positionCalcP1, (50));
+      window.setInterval(positionCalcP2, (50));
+    }, 3500);
   })
-}
+};
 
 start();
 // FUNCTION TO MEASURE SPEED OF CYCLIST
@@ -38,41 +43,54 @@ start();
   // EG, IF ON START PLAYER ONE PRESSES THE KEYS (A,S,A,S...) 10 TIMES IN THE FIRST .5 SECONDS THEY WILL MOVE 20 UNITS AROUND THE TRACK BUT ONLY AFTER A .1 SECOND DELAY
             //INPUTS - PLAYER KEY PRESSES P1(A,S) P2(K,L)
             // OUTPUTS - 'SPEED' - NUMERICAL VARIABLE
-var cadence = 0;
-var flip = false;
+var cadenceP1 = 0;
+var cadenceP2 = 0;
+var flipAS = false;
+var flipKL = false
 
 
-var speed = 0;
+var speedP1 = 0;
+var speedP2 = 0;
 
 
 
 $(window).keypress(function(e){
   if ((e.which) === 97 ||(e.which) === 65){
-    if (flip == false){
-      cadence ++;
-      flip = !flip;
-      // console.log("A", flip);
+    if (flipAS == false){
+      cadenceP1 ++;
+      flipAS = !flipAS;
     }
-  } else if ((e.which) === 83 ||(e.which) === 115){
-        if (flip == true){
-        cadence ++;
-        flip = !flip;
-        // console.log("S", flip);
+  } else if ((e.which) === 115 ||(e.which) === 83){
+        if (flipAS == true){
+        cadenceP1 ++;
+        flipAS = !flipAS;
+      }
+    }
+  });
+$(window).keypress(function(e){
+  if ((e.which) === 75 ||(e.which) === 107){
+    if (flipKL == false){
+      cadenceP2 ++;
+      flipKL = !flipKL;
+    }
+  } else if ((e.which) === 76 ||(e.which) === 108){
+        if (flipKL == true){
+        cadenceP2 ++;
+        flipKL = !flipKL;
       }
     }
   });
 
 function cadenceCounter(){ 
+  speedP1 = cadenceP1;
+  speedP2 = cadenceP2;
+  cadenceP1 = 0;
+  cadenceP2 = 0;
+  // console.log("speed" , speed);
 
-  // distanceP1 = (cadence);
-  speed = cadence/80;
-  cadence = 0;
-  console.log("speed" , speed);
-
-  // positionCalc(distanceP1);
 };
 
- window.setInterval(cadenceCounter, 1000);
+ // window.setInterval(cadenceCounter, 1000);
 // console.log("distanceP1:"+distanceP1);
 
 // Need to create a distanceTravelled variable that increments speedp1/speedp2. Winner will have travelled greater distance.
@@ -101,42 +119,79 @@ function cadenceCounter(){
             // OUTPUT - PLAYER POSITION VALUE (AS CALCULATED ALONG THE OVAL) - POSITION TURNED INTO ANIMATED SPRITE
 
 
-var angle = ((3*Math.PI)/2);
+function degsToRads(angleDegs){
+  angleRads = (angleDegs*Math.PI)/180;
+  // console.log(angleRads);
+  return angleRads;
+}
+
+
+var angleP1 = -90;
+var angleP2 = 90;
 var rad = 125;
-var startXPosP1 = 652;
+var startXPosP1 = 720;
 var startYPosP1 = 320;
+var startXPosP2 = 720;
+var startYPosP2 = 320;
 
 
 
-function positionCalc (){
+
+function positionCalcP1 (){
   
-  angle += speed;
-  var spriteAngle = (60*angle)+90;
-
-  var xPosP1 = (startXPosP1 + (rad * (Math.cos(angle))));
-  var yPosP1 = (startYPosP1 + (rad * (Math.sin(angle))));
-  console.log("angle:"+angle, "spriteAngle:"+spriteAngle);
+  angleP1 += speedP1;
+  spriteAngleP1 = angleP1 - 270;
+  // BROKEN SUPER ELLIPSE
+  // var cosAngle = Math.cos(degsToRads(angle));
+  // var sinAngle = Math.sin(degsToRads(angle));
+  // var xPosP1 = startXPosP1 + (650 * (Math.pow(cosAngle),(2/2.5)));
+  // var yPosP1 = startYPosP1 + (200 * (Math.pow(sinAngle),(2/2.5)));
+// circle version
+  var xPosP1 = (startXPosP1 + (rad * (Math.cos(degsToRads(angleP1)))));
+  var yPosP1 = (startYPosP1 + (rad * (Math.sin(degsToRads(angleP1)))));
+  console.log("angle:"+angleP1, "spriteAngle:"+spriteAngleP1);
+  // console.log("cosAngle"+cosAngle,"sinAngle"+sinAngle);
+  // console.log("superellipseX"+(650 * (Math.pow(cosAngle),(2718))));
+  console.log("x:"+xPosP1, "y:"+yPosP1);
+  console.log("stx:"+startXPosP1, "sty:"+startYPosP1);
   $("#sprite1").css({"left":xPosP1, "top":yPosP1});
-  $("#sprite1").css({transform:'rotate(' + spriteAngle + 'deg)'});
-  // $("#sprite1").css("transform: 'rotate('+(angle+90)+'deg'");
-  // transform: 'rotate(' + -amount + 'deg)'
-  // $("#sprite1").animate({"left":xPosP1, "top":yPosP1});
-  // startXPosP1 = xPosP1;
-  // startYPosP1 = yPosP1;
-  // angle++;
+  $("#sprite1").css({transform:'rotate(' + spriteAngleP1 + 'deg)'});
 };
 
-// window.setTimeout(positionCalc, 500);
-// window.setTimeout(positionCalc, 1000);
-// window.setTimeout(positionCalc, 1500);
-// window.setTimeout(positionCalc, 2000);
+
+function positionCalcP2 (){
+  
+  angleP2 += speedP2;
+  spriteAngleP2 = angleP2 + 270;
+  // BROKEN SUPER ELLIPSE
+  // var cosAngle = Math.cos(degsToRads(angle));
+  // var sinAngle = Math.sin(degsToRads(angle));
+  // var xPosP1 = startXPosP1 + (650 * (Math.pow(cosAngle),(2/2.5)));
+  // var yPosP1 = startYPosP1 + (200 * (Math.pow(sinAngle),(2/2.5)));
+// circle version
+  var xPosP2 = (startXPosP2 + (rad * (Math.cos(degsToRads(angleP2)))));
+  var yPosP2 = (startYPosP2 + (rad * (Math.sin(degsToRads(angleP2)))));
+  console.log("angle:"+angleP2, "spriteAngle:"+spriteAngleP2);
+  // console.log("cosAngle"+cosAngle,"sinAngle"+sinAngle);
+  // console.log("superellipseX"+(650 * (Math.pow(cosAngle),(2718))));
+  console.log("x:"+xPosP2, "y:"+yPosP2);
+  // console.log("stx:"+startXPosP2, "sty:"+startYPosP2);
+  $("#sprite2").css({"left":xPosP2, "top":yPosP2});
+  $("#sprite2").css({transform:'rotate(' + spriteAngleP2 + 'deg)'});
+};
 
 
-window.setInterval(positionCalc, (100));
-// window.setInterval(positionCalc, (distanceP1));
 
 
 
+
+
+// window.setInterval(positionCalc, (100));
+
+// Super ellipse
+// x = acos^(2/r)t 
+// 
+// y = bsin^(2/r)t.
 
 
 // work out position of circle centre (a,b) from top left of screen?
