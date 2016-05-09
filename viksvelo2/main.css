@@ -43,7 +43,15 @@ h3 {
 .play_area {
   margin: 0 auto;
   width: 1100px;
+}
 
+#startline {
+  display: inline-block;
+  float: left;
+  height: 500px;
+  width: 550px;
+  border-right: 1px dashed #222;
+  background: rgba(1,1,1,0);
 }
 
 #track {
@@ -62,22 +70,29 @@ h3 {
   display: inline-block;
 }
 #sprite1 {
-  left: 720px;
+  left: 660px;
   top: 190px;
 }
 #sprite2 {
   left: 720px;
-  top: 490px;
+  top: 450px;
 }
 
 
 #sprite1 img, #sprite2 img {
   width: 60px;
+  transform-origin:center, center;
+  -webkit-transform-origin:center, center;
+  -moz-transform-origin:center, center;
 }
 #sprite2 img {
   transform:rotate(180deg);
   -webkit-transform:rotate(180deg);
   -moz-transform:rotate(180deg);
+  transform-origin:center, center;
+  -webkit-transform-origin:center, center;
+  -moz-transform-origin:center, center;
+
 }
 
 
