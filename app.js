@@ -5,29 +5,42 @@ $(function(){
   var posCalc2;
   var win;
 
-function countDown(text, time){
+function countDown(text, time, sound){
   setTimeout(function(){
   $("#track h3").remove("#track h3");
   $("#track").append("<h3>"+text+"</h3>");
+  new Audio(sound).play();
   }, time);
+}
+function crowdSounds(on){ // to run set 'on' to true - to kill set to false
+  var cheers = new Audio("applause.mp3");
+  if (on === "true"){
+  setTimeout (function(){
+  cheers.loop = true;
+  cheers.autoplay = true;
+}, 1000)
+} else if (on === "false"){
+  cheers.stop;
+}
 }
 
   function start(){
-    $("#btstart").click(function(){
-      positionCalcP1();
-      positionCalcP2();
-      countDown("3",0000);
-      countDown("2",1000);
-      countDown("1",2000);
-      countDown("GO!",3000);
-      countDown("",4000);
-      setTimeout (function(){
-         cadCount = setInterval(cadenceCounter, 1000);
-         posCalc1 = setInterval(positionCalcP1, 50);
-         posCalc2 = setInterval(positionCalcP2, 50);
-         win = setInterval(catchCalc, 50);
-      }, 4000);
-    })
+    $("#btstart").off("click")
+    positionCalcP1();
+    positionCalcP2();
+    crowdSounds(true);
+    countDown("3",0000,"beep.mp3");
+    countDown("2",1000,"beep.mp3");
+    countDown("1",2000,"beep.mp3");
+    countDown("GO!",3000,"gun.mp3");
+    countDown("",4000);
+    setTimeout (function(){
+       cadCount = setInterval(cadenceCounter, 1000);
+       posCalc1 = setInterval(positionCalcP1, 50);
+       posCalc2 = setInterval(positionCalcP2, 50);
+       win = setInterval(catchCalc, 50);
+       crowdSounds(true);
+    }, 4000);
   };
 
 function stop() {
@@ -35,11 +48,13 @@ function stop() {
   clearInterval(posCalc1);
   clearInterval(posCalc2);
   clearInterval(win);
+  crowdSounds(false);
   angleP1 = -90;
   angleP2 = 90;
-}
+  $("#btstart").on("click",start);
+};
 
-start();
+stop();
 
 var cadenceP1 = 0;
 var cadenceP2 = 0;
@@ -68,8 +83,6 @@ var speedP2 = 0;
 
 // masher(97, 65, 115, 83, flipAS);
 
-
-
 $(window).keypress(function(e){
   if ((e.which) === 97 ||(e.which) === 65){
     if (flipAS == false){
@@ -82,6 +95,7 @@ $(window).keypress(function(e){
       }
     }
   });
+
 $(window).keypress(function(e){
   if ((e.which) === 75 ||(e.which) === 107){
     if (flipKL == false){
@@ -140,7 +154,7 @@ function catchCalc(){
     $("#track").append("<h3 class='red'>RED WINS</h3>"); //P1
     scoreboard ("p1");
     stop();
-  } else if ((angleP2 - angleP1) >= 354{
+  } else if ((angleP2 - angleP1) >= 354){
     $("#track").append("<h3 class='blue'>BLUE WINS</h3>"); //P2
     scoreboard ("p2");
     stop();

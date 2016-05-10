@@ -65,10 +65,11 @@ button:focus {
 .scoreboard {
   position: fixed;
   background-color: #ddd;
-  top:20px;
+  padding: 20px 6px 6px 6px;
+  top: 0px;
   right: 40px;
-  border-radius: 5px;
-  padding:6px;
+  border-radius: 0 0 5px 5px;
+  
 }
 .scoreboard * {
   padding: 5px;
@@ -101,6 +102,9 @@ button {
   height: 40px;
   box-shadow: 3px 3px 2px #222;
   padding: 0 6px;
+}
+button:hover {
+  cursor: pointer;
 }
 
 
