@@ -54,7 +54,6 @@ function stop() {
   clearInterval(posCalc1);
   clearInterval(posCalc2);
   clearInterval(win);
-
   cadenceP1 = 0;
   cadenceP2 = 0;
   flipAS = false;
@@ -71,8 +70,6 @@ function stop() {
   yPosP1 = 320;
   xPosP2 = 720;
   yPosP2 = 320;
-
-
 }
 
 start();
@@ -127,8 +124,6 @@ function cadenceCounter(){
   speedP2 = cadenceP2/3;
   cadenceP1 = 0;
   cadenceP2 = 0;
-  // console.log("speed" , speed);
-
 };
 
  // window.setInterval(cadenceCounter, 1000);
@@ -267,14 +262,21 @@ function scoreboard (winner){
   if (winner === "p1") {
     scoreP1 ++;
     $("#p1Score span").remove("#p1Score span"); 
-    $("#p1Score").append("<span>"+scoreP1+"</span>"); 
-  } else if (winner === "p2") {
-  scoreP2 ++;
-  $("#p2Score span").remove("#p2Score span"); 
-  $("#p2Score").append("<span>"+scoreP2+"</span>"); 
+    $("#p1Score").append("<span>"+scoreP1+"</span>");
+    $(".scoreboard").css({"background-color":"#CD4734"});
+    $(".scoreboard table").css({"color":"#ddd"});
 
+  } else if (winner === "p2") {
+    scoreP2 ++;
+    $("#p2Score span").remove("#p2Score span"); 
+    $("#p2Score").append("<span>"+scoreP2+"</span>");
+    $(".scoreboard").css({"background-color":"#658FDE"});
+    $(".scoreboard td, scoreboard th").css({"color":"#ddd"});
   }
 }
+
+
+
 
 
 // FUNCTION TO RESET
