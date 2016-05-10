@@ -16,25 +16,13 @@ $(function(){
 function start(){
   // playing = true;
 
-  // cadenceP1 = 0;
-  // cadenceP2 = 0;
-  // flipAS = false;
-  // flipKL = false
-  // speedP1 = 0;
-  // speedP2 = 0;
-  // angleP1 = -90;
-  // angleP2 = 90;
-  // rad = 125;
-  // // startXPosP1 = 660;
-  // // startYPosP1 = 320;
-  // // startXPosP2 = 720;
-  // // startYPosP2 = 320;
-  // xPosP1 = 660;
-  // yPosP1 = 320;
-  // xPosP2 = 720;
-  // yPosP2 = 320;
-
   $("#btstart").click(function(){
+    // angleP1 = -90;
+    // angleP2 = 90;
+    positionCalcP1();
+    positionCalcP2();
+
+    $("#track h3").remove("#track h3");
     $("#track").append("<h3>3</h3>");
     setTimeout(function(){
       $("#track h3").remove("#track h3");
@@ -58,10 +46,6 @@ function start(){
        posCalc2 = setInterval(positionCalcP2, 50);
        win = setInterval(catchCalc, 50);
     }, 3500);
-
-    console.log(winner);
-        // console.log('angleP1:'+angleP1, 'angleP2:'+angleP2);
-
   })
 };
 
@@ -70,7 +54,7 @@ function stop() {
   clearInterval(posCalc1);
   clearInterval(posCalc2);
   clearInterval(win);
-  // playing = false;
+
   cadenceP1 = 0;
   cadenceP2 = 0;
   flipAS = false;
@@ -79,11 +63,10 @@ function stop() {
   speedP2 = 0;
   angleP1 = -90;
   angleP2 = 90;
-  rad = 125;
-  // startXPosP1 = 660;
-  // startYPosP1 = 320;
-  // startXPosP2 = 720;
-  // startYPosP2 = 320;
+  startXPosP1 = 660;
+  startYPosP1 = 320;
+  startXPosP2 = 720;
+  startYPosP2 = 320;
   xPosP1 = 660;
   yPosP1 = 320;
   xPosP2 = 720;
