@@ -26,16 +26,16 @@ Elements:
   <div class="scoreboard">
     <table>
         <tr>
-          <th>
-          Player 1
+          <th class="red">
+          RED
           </th>
-          <th>
-          Player 2
+          <th class="blue">
+          BLUE
           </th>
         </tr>
       <tr>
-       <td>0</td> 
-        <td>0</td>
+       <td class="red" id="p1Score"><span>0</span></td> 
+        <td class="blue" id="p2Score"><span>0</span></td>
       </tr>
     </table>
   </div>
@@ -45,10 +45,13 @@ Elements:
   Large oval with centre pieces
   Cyclist sprites moving round and round. Need to move and rotate! -->
     <div class="play_area">
+      <div id="startlineTop"></div>
+      <div id="startlineBottom"></div>
       <div id="track">
-        <div id="sprite1"></div>
-        <!-- <h3>3</h3> -->
 
+        <div id="sprite1"><img src="RedCyclist.png"></div>
+        <div id="sprite2"><img src="BlueCyclist.png"></div>
+       <h3>CLICK START</h3>
       </div>
     </div>
 
@@ -59,16 +62,17 @@ Elements:
     RESET - Center
     P2 instructions push K/L - right -->
     <div class="instructions">
-    <div class="column">
-      <h2>Player1</h2>
+    <div class="column red">
+      <h2>RED</h2>
       <div class="key">A</div>
       <div class="key">S</div>
     </div>
     <div class="column">
-      <button id="btstart">START/RESET</button>
+      <h2>USE YOUR KEYBOARD</h2>
+      <button id="btstart">START</button>
     </div>
-    <div class="column">
-      <h2>Player2</h2>
+    <div class="column blue">
+      <h2>BLUE</h2>
       <div class="key">K</div>
       <div class="key">L</div>
     </div>
