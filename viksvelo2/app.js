@@ -7,14 +7,14 @@ $(function(){
             // OUTPUTS - ANIMATION THEN RUN ALL GAME FUNCTIONS
 
             var winner = null;
-            var playing = false;
+            // var playing = false;
             var cadCount;
             var posCalc1;
             var posCalc2;
             var win;
 
 function start(){
-  playing = true;
+  // playing = true;
 
   // cadenceP1 = 0;
   // cadenceP2 = 0;
@@ -25,10 +25,14 @@ function start(){
   // angleP1 = -90;
   // angleP2 = 90;
   // rad = 125;
-  // startXPosP1 = 660;
-  // startYPosP1 = 320;
-  // startXPosP2 = 720;
-  // startYPosP2 = 320;
+  // // startXPosP1 = 660;
+  // // startYPosP1 = 320;
+  // // startXPosP2 = 720;
+  // // startYPosP2 = 320;
+  // xPosP1 = 660;
+  // yPosP1 = 320;
+  // xPosP2 = 720;
+  // yPosP2 = 320;
 
   $("#btstart").click(function(){
     $("#track").append("<h3>3</h3>");
@@ -49,10 +53,10 @@ function start(){
     }, 3500);
 // Start interval loops to measure speed and position here once working!
     setTimeout (function(){
-       cadCount = window.setInterval(cadenceCounter, 1000);
-       posCalc1 = window.setInterval(positionCalcP1, 50);
-       posCalc2 = window.setInterval(positionCalcP2, 50);
-       win = window.setInterval(catchCalc, 50);
+       cadCount = setInterval(cadenceCounter, 1000);
+       posCalc1 = setInterval(positionCalcP1, 50);
+       posCalc2 = setInterval(positionCalcP2, 50);
+       win = setInterval(catchCalc, 50);
     }, 3500);
 
     console.log(winner);
@@ -62,10 +66,29 @@ function start(){
 };
 
 function stop() {
-
+  clearInterval(cadCount);
   clearInterval(posCalc1);
   clearInterval(posCalc2);
   clearInterval(win);
+  // playing = false;
+  cadenceP1 = 0;
+  cadenceP2 = 0;
+  flipAS = false;
+  flipKL = false
+  speedP1 = 0;
+  speedP2 = 0;
+  angleP1 = -90;
+  angleP2 = 90;
+  rad = 125;
+  // startXPosP1 = 660;
+  // startYPosP1 = 320;
+  // startXPosP2 = 720;
+  // startYPosP2 = 320;
+  xPosP1 = 660;
+  yPosP1 = 320;
+  xPosP2 = 720;
+  yPosP2 = 320;
+
 
 }
 
@@ -232,14 +255,14 @@ function positionCalcP2 (){
             // OUTPUT - GAME STOPS AND APPROPRIATE WINNER ANIMATION IS RETURNED SCOREBOARD IS UPDATED WITH WIN COUNT
 
 function catchCalc(){
-  if (((angleP2 - angleP1) <= 20) && (angleP1 >= 0)){
+  if (((angleP2 - angleP1) <= 10) && (angleP1 >= 0)){
     // console.log("Player 1 is the winner!");
     // console.log(angleP1 - angleP2);
     $("#track").append("<h3>RED WINS</h3>"); //P1
     winner = "p1";
     scoreboard ("p1");
     stop();
-  } else if ((angleP2 - angleP1) >= 340){
+  } else if ((angleP2 - angleP1) >= 350){
     // console.log("Player 2 is the winner!");
     $("#track").append("<h3>BLUE WINS</h3>"); //P2
     winner = "p2";
@@ -260,11 +283,11 @@ var scoreP2 = 0;
 function scoreboard (winner){
   if (winner === "p1") {
     scoreP1 ++;
-    $("#p1Score").remove("#p1Score span"); 
+    $("#p1Score span").remove("#p1Score span"); 
     $("#p1Score").append("<span>"+scoreP1+"</span>"); 
   } else if (winner === "p2") {
   scoreP2 ++;
-  $("#p2Score").remove("#p2Score span"); 
+  $("#p2Score span").remove("#p2Score span"); 
   $("#p2Score").append("<span>"+scoreP2+"</span>"); 
 
   }
