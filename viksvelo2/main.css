@@ -26,6 +26,9 @@ h3 {
   right: 0;
   top: 0;
   background-color: #ddd;
+  font-size: 150%;
+  top:20px;
+  right: 40px;
 }
 
 .instructions {

@@ -8,6 +8,10 @@ $(function(){
 
             var winner = null;
             var playing = false;
+            var cadCount;
+            var posCalc1;
+            var posCalc2;
+            var win;
 
 function start(){
   playing = true;
@@ -45,25 +49,25 @@ function start(){
     }, 3500);
 // Start interval loops to measure speed and position here once working!
     setTimeout (function(){
-      var cadCount = window.setInterval(cadenceCounter, 1000);
-      var posCalc1 = window.setInterval(positionCalcP1, 50);
-      var posCalc2 = window.setInterval(positionCalcP2, 50);
-      var win = window.setInterval(catchCalc, 50);
+       cadCount = window.setInterval(cadenceCounter, 1000);
+       posCalc1 = window.setInterval(positionCalcP1, 50);
+       posCalc2 = window.setInterval(positionCalcP2, 50);
+       win = window.setInterval(catchCalc, 50);
     }, 3500);
 
     console.log(winner);
-
-    // if (winner === null) {
-    //   console.log("yoyoyo");
-    //   window.clearInterval();
-    //   window.clearInterval(posCalc1);
-    //   window.clearInterval(posCalc2);
-    //   window.clearInterval(win);
-    // }
         // console.log('angleP1:'+angleP1, 'angleP2:'+angleP2);
 
   })
 };
+
+function stop() {
+
+  clearInterval(posCalc1);
+  clearInterval(posCalc2);
+  clearInterval(win);
+
+}
 
 start();
 // FUNCTION TO MEASURE SPEED OF CYCLIST
@@ -234,11 +238,13 @@ function catchCalc(){
     $("#track").append("<h3>RED WINS</h3>"); //P1
     winner = "p1";
     scoreboard ("p1");
+    stop();
   } else if ((angleP2 - angleP1) >= 340){
     // console.log("Player 2 is the winner!");
     $("#track").append("<h3>BLUE WINS</h3>"); //P2
     winner = "p2";
     scoreboard ("p2");
+    stop();
   }
 }
 
