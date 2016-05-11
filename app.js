@@ -4,22 +4,31 @@ var cadCount;
 var posCalc1;
 var posCalc2;
 var win;
+var rad = 125;
 
-function Player(cadence, angle, speed, startXPos, startYPos, xPos, yPos, score) {
+function Player(cadence, angle, spriteAngle, speed, startXPos, startYPos, xPos, yPos, score, positionCalc) {
     this.cadence = cadence;
     this.angle = angle;
+    this.spriteAngle = spriteAngle;
     this.speed = speed;
     this.startXPos = startXPos;
     this.startYPos = startYPos;
     this.xPos = xPos;
     this.yPos = yPos;
     this.score = score;
-};
+    // this.positionCalc = function (){
+    //   this.angle += this.speed;
+    //   this.spriteAngle = this.angle - this.spriteAngle;
+    //   this.xPos = (this.startXPos + (500 * (Math.cos(degsToRads(this.angle)))));
+    //   this.yPos = (this.startYPos + (130 * (Math.sin(degsToRads(this.angle)))));
+    //   $("#sprite1").css({"left":this.xPos, "top":this.yPos});
+    //   $("#sprite1").css({transform:'rotate(' + this.spriteAngle + 'deg)'});
+    //   return this.angle;
+    // };
+  };
 
-var redbike  = new Player(0, -90, 0, 660, 320, "", "", 0);
-var bluebike = new Player(0, 90, 0, 720, 320, "", "", 0);
-
-
+var redbike  = new Player(0, -90, -270, 0, 660, 320, "", "", 0);
+var bluebike = new Player(0, 90, 270, 0, 720, 320, "", "", 0);
 
 function countDown(text, time, sound){
   setTimeout(function(){
@@ -28,23 +37,25 @@ function countDown(text, time, sound){
   new Audio(sound).play();
   }, time);
 }
-function crowdSounds(on){ // to run set 'on' to true - to kill set to false
-  var cheers = new Audio("applause.mp3");
-  if (on === "true"){
-    setTimeout (function(){
-    cheers.loop = true;
-    cheers.autoplay = true;
-  }, 1000)
-} else if (on === "false"){
-    cheers.stop;
-  }
-}
+// function crowdSounds(on){ // to run set 'on' to true - to kill set to false
+//   var cheers = new Audio("applause.mp3");
+//   if (on === "true"){
+//     setTimeout (function(){
+//     cheers.loop = true;
+//     cheers.autoplay = true;
+//   }, 1000)
+// } else if (on === "false"){
+//     cheers.stop;
+//   }
+// }
 
 function start(){
   $("#btstart").off("click")
+  // redbike.positionCalc();
+  // bluebike.positionCalc();
   positionCalcP1();
   positionCalcP2();
-  crowdSounds(true);
+  // crowdSounds(true);
   countDown("3",0000,"beep.mp3");
   countDown("2",1000,"beep.mp3");
   countDown("1",2000,"beep.mp3");
@@ -55,7 +66,7 @@ function start(){
      posCalc1 = setInterval(positionCalcP1, 50);
      posCalc2 = setInterval(positionCalcP2, 50);
      win = setInterval(catchCalc, 50);
-     crowdSounds(true);
+     // crowdSounds(true);
   }, 4000);
 };
 
@@ -64,9 +75,9 @@ function stop() {
   clearInterval(posCalc1);
   clearInterval(posCalc2);
   clearInterval(win);
-  crowdSounds(false);
-  angleP1 = -90;
-  angleP2 = 90;
+  // crowdSounds(false);
+  redbike.angle = -90;
+  bluebike.angle = 90;
   $("#btstart").on("click",start);
 };
 
@@ -139,7 +150,7 @@ function degsToRads(angleDegs){
 
 // var angleP1 = -90;
 // var angleP2 = 90;
-var rad = 125;
+// var rad = 125;
 // var startXPosP1 = 660;
 // var startYPosP1 = 320;
 // var startXPosP2 = 720;

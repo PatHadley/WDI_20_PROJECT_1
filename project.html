@@ -5,55 +5,56 @@
   <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="icon" type="image/png" href="favicon.png">
   <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
   <script src="app.js"></script>
 </head>
 <body>
-<main>
-  <div class="title">
-    <h1>THE VIKTOR-DROME</h1>
-  </div>
-  <div class="scoreboard">
-    <table>
+  <main>
+    <div class="title">
+      <h1>THE VIKTOR-DROME</h1>
+    </div>
+    <div class="scoreboard">
+      <table>
+          <tr>
+            <th class="red">
+            RED
+            </th>
+            <th class="blue">
+            BLUE
+            </th>
+          </tr>
         <tr>
-          <th class="red">
-          RED
-          </th>
-          <th class="blue">
-          BLUE
-          </th>
+         <td class="red" id="p1Score"><span>0</span></td> 
+          <td class="blue" id="p2Score"><span>0</span></td>
         </tr>
-      <tr>
-       <td class="red" id="p1Score"><span>0</span></td> 
-        <td class="blue" id="p2Score"><span>0</span></td>
-      </tr>
-    </table>
-  </div>
-    <div class="play_area">
-      <div id="startlineTop"></div>
-      <div id="startlineBottom"></div>
-      <div id="track">
+      </table>
+    </div>
+      <div class="play_area">
+        <div id="startlineTop"></div>
+        <div id="startlineBottom"></div>
+        <div id="track">
 
-        <div id="sprite1"><img src="RedCyclist.png"></div>
-        <div id="sprite2"><img src="BlueCyclist.png"></div>
-       <h3>CLICK START</h3>
+          <div id="sprite1"><img src="RedCyclist.png"></div>
+          <div id="sprite2"><img src="BlueCyclist.png"></div>
+         <h3>CLICK START</h3>
+        </div>
       </div>
+      <div class="instructions">
+      <div class="column red">
+        <h2>RED</h2>
+        <div class="key">A</div>
+        <div class="key">S</div>
+      </div>
+      <div class="column">
+        <h2>USE YOUR KEYBOARD</h2>
+        <button id="btstart">START</button>
+      </div>
+      <div class="column blue">
+        <h2>BLUE</h2>
+        <div class="key">K</div>
+        <div class="key">L</div>
+      </main>
     </div>
-    <div class="instructions">
-    <div class="column red">
-      <h2>RED</h2>
-      <div class="key">A</div>
-      <div class="key">S</div>
-    </div>
-    <div class="column">
-      <h2>USE YOUR KEYBOARD</h2>
-      <button id="btstart">START</button>
-    </div>
-    <div class="column blue">
-      <h2>BLUE</h2>
-      <div class="key">K</div>
-      <div class="key">L</div>
-    </div>
-  </main>
-</body>
+  </body>
 </html>
