@@ -33,29 +33,30 @@ Player must be able to | Reset the game | because | Keep playing with a fresh sc
  * Player 2 (‘K’ and ‘L’ to pedal)
  * SPACEBAR to reset
 * Countdown to start (makes inputs live)
-*Animation on catch/finish
+* Animation on catch/finish
+
 ##Game engine elements:
-*Start and countdown function
- *Timer animation
- *Make buttons ready for key press
-*Measure cyclist speed function
- *Take input from keys
- *Calculate speed based on frequency of alternation
- *Calculate cyclist position function
- *Take speed and use it to travel a distance around track
-*Calculate catch function
- *Calculate when both cyclists overlap on the track
- *Calculate which has caught the other
- *Return win animation
- *Count wins to scoreboard
-*Reset function
- *Clears scoreboard and triggers start
+* Start and countdown function
+ * Timer animation
+ * Make buttons ready for key press
+* Measure cyclist speed function
+ * Take input from keys
+ * Calculate speed based on frequency of alternation
+ * Calculate cyclist position function
+ * Take speed and use it to travel a distance around track
+* Calculate catch function
+ * Calculate when both cyclists overlap on the track
+ * Calculate which has caught the other
+ * Return win animation
+ * Count wins to scoreboard
+* Reset function
+ * Clears scoreboard and triggers start
 
 #Additional features
-*A computer-driven player at constant speed but with selectable difficulty.
-*Drafting - players are in teams of two and can press a button to attack and use the lead-out as a speed boost. (has to charge up over a number of laps?)
-*Lap counter with optional max - Game ends and winner is the person closest to a catch.
-*Crash feature if player holds both buttons for too long
+* A computer-driven player at constant speed but with selectable difficulty.
+* Drafting - players are in teams of two and can press a button to attack and use the lead-out as a speed boost. (has to charge up over a number of laps?)
+* Lap counter with optional max - Game ends and winner is the person closest to a catch.
+* Crash feature if player holds both buttons for too long
 
 #Visual elements:
 *Track - large oval with finish/start lines marked
