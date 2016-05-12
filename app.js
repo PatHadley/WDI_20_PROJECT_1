@@ -30,13 +30,20 @@ function Player(cadence, angle, spriteAngle, speed, startXPos, startYPos, xPos, 
 var redbike  = new Player(0, -90, -270, 0, 660, 320, "", "", 0);
 var bluebike = new Player(0, 90, 270, 0, 720, 320, "", "", 0);
 
-function countDown(text, time, sound){
+function announcer(wincolor, text, time, sound, loudness){
   setTimeout(function(){
   $("#track h3").remove("#track h3");
-  $("#track").append("<h3>"+text+"</h3>");
-  new Audio(sound).play();
+  $("#track").append("<h3 class="+wincolor+">"+text+"</h3>");
+  new Audio(sound).play().volume = loudness;
   }, time);
 }
+function pedaldemo(key) {
+  pedalling = setInterval
+}
+
+
+
+
 // function crowdSounds(on){ // to run set 'on' to true - to kill set to false
 //   var cheers = new Audio("applause.mp3");
 //   if (on === "true"){
@@ -56,11 +63,11 @@ function start(){
   positionCalcP1();
   positionCalcP2();
   // crowdSounds(true);
-  countDown("3",0000,"beep.mp3");
-  countDown("2",1000,"beep.mp3");
-  countDown("1",2000,"beep.mp3");
-  countDown("GO!",3000,"gun.mp3");
-  countDown("",4000);
+  announcer("","3",0000,"beep.mp3",0.5);
+  announcer("","2",1000,"beep.mp3",0.5);
+  announcer("","1",2000,"beep.mp3",0.5);
+  announcer("","GO!",3000,"gun.mp3",1);
+  announcer("","",4000,"applause.mp3",0.8);
   setTimeout (function(){
      cadCount = setInterval(cadenceCounter, 1000);
      posCalc1 = setInterval(positionCalcP1, 50);
@@ -178,11 +185,16 @@ function positionCalcP2 (){
 
 function catchCalc(){
   if (((bluebike.angle - redbike.angle) <= 6) && (redbike.angle >= 0)){
-    $("#track").append("<h3 class='red'>RED WINS</h3>"); //P1
+    // $("#track").append("<h3 class='red'>RED WINS</h3>"); //P1
+    announcer("red","RED WINS",000,"bell.mp3",0.8);
+    announcer("red","RED WINS",500,"applause.mp3",0.8);
     scoreboard ("p1");
     stop();
   } else if ((bluebike.angle - redbike.angle) >= 354){
-    $("#track").append("<h3 class='blue'>BLUE WINS</h3>"); //P2
+    // $("#track").append("<h3 class='blue'>BLUE WINS</h3>"); //P2
+    announcer("blue","BLUE WINS",000,"bell.mp3",0.8);
+    announcer("blue","BLUE WINS",500,"applause.mp3",0.8);
+
     scoreboard ("p2");
     stop();
   }
